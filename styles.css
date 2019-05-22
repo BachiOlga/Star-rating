@@ -21,7 +21,30 @@ body {
     position: relative;
     width: 10em;
     height: 2em;
-    background-image: url(img/star.svg);
+    background-image: url(img/offstar.svg);
+    background-size: 2em 1.9em;
+    background-repeat: repeat-x;
+}
+
+/* Input */
+.rating__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+.rating__input:focus~.rating__focus {
+    position: absolute;
+    top: -0.2em;
+    right: -0.2em;
+    bottom: -0.2em;
+    left: -0.2em;
+    z-index: -1;
+    outline: solid 0.1em #009887;
+
+
 }
 
 /* Star */
@@ -29,12 +52,39 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-
+    margin: 0;
+    font-size: inherit;
     height: 2em;
-
+    background-size: 2em 1.9em;
+    background-repeat: repeat-x;
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
+}
+
+.rating__star:focus {
+    outline: none;
+}
+
+.rating__star:focus~.rating__focus {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    outline: solid 0.1em #009887;
+    outline-offset: 0.2em;
+
+}
+
+.rating__input:checked+.rating__star,
+.rating__star:hover {
+    background-image: url(img/onstar.svg)
+}
+
+.rating__star:hover~.rating__star {
+    background-image: url(img/offstar.svg)
 }
 
 /* Option */
